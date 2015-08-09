@@ -22,7 +22,7 @@ Usage
     Execute `play24-slick3-auth-example/conf/evolutions/default/create_dtabase_user.sql`    
     (replace YOUR_DATABASE, YOUR_ADMIN_USER, YOUR_USER)
     
-1. Fix application.conf
+1. Fix `play24-slick3-auth-example/conf/application.conf`
     
     Replace database name, user name, password.
     ```
@@ -39,7 +39,7 @@ Usage
     
 1. Run application
     
-    `activator run`
+    `$ activator run`
     
 1. Login  
     
