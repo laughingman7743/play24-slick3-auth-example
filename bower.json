@@ -1,0 +1,13 @@
+{
+  "name": "play24",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootswatch-dist": "3.3.5-slate",
+    "metisMenu": "~2.0.2",
+    "font-awesome": "~4.3.0",
+    "datatables": "~1.10.7",
+    "datatables-plugins": "~1.10.7",
+    "datatables-responsive": "~1.0.6"
+  }
+}

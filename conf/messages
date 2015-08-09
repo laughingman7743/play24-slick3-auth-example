@@ -1,0 +1,3 @@
+validation.error.required=required
+validation.error.email.invalid=invalid email
+login.fail=invalid email or password

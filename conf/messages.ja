@@ -1,0 +1,3 @@
+validation.error.required=必須
+validation.error.email.invalid=不正なメールアドレス
+login.fail=メールアドレスまたはパスワードが不一致

@@ -1,0 +1,43 @@
+@import form.LoginForm
+@import controller.routes._
+@import play.filters.csrf.CSRF.Token
+@(loginForm: Form[LoginForm])(implicit messages: Messages, token: Token)
+@main("") {
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    @*** TODO show global error message ***@
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body @if(loginForm("email").hasErrors){has-error}">
+                        @helper.form(action = LoginLogoutController.login()) {
+                            @helper.CSRF.formField
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" value="@loginForm("email").value" autofocus>
+                                    @for(error <- loginForm("email").errors) {
+                                        <p class="text-danger" style="margin: 0">@error.message</p>
+                                    }
+                                </div>
+                                <div class="form-group @if(loginForm("password").hasErrors){has-error}">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    @for(error <- loginForm("password").errors) {
+                                        <p class="text-danger" style="margin: 0">@error.message</p>
+                                    }
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Login"/>
+                            </fieldset>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

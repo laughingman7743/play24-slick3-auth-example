@@ -1,0 +1,43 @@
+@import view.tag.html._
+@(title: String,
+        moreStyles: Seq[String] = Nil,
+        moreScripts: Seq[String] = Nil,
+        initScript: Html = HtmlFormat.empty)(
+        content: Html)
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>@title</title>
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("bower_components/bootswatch-dist/css/bootstrap.min.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("bower_components/metisMenu/dist/metisMenu.min.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("bower_components/font-awesome/css/font-awesome.min.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/sb-admin-2.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/main.css")">
+        @stylesheets(moreStyles)
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        @content
+        <script type="text/javascript" src="@routes.Assets.versioned("bower_components/jquery/dist/jquery.min.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.versioned("bower_components/bootswatch-dist/js/bootstrap.min.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.versioned("bower_components/metisMenu/dist/metisMenu.min.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/sb-admin-2.js")"></script>
+        @javascripts(moreScripts)
+        <script type="text/javascript">
+        $(function() {
+            @initScript
+        });
+        </script>
+    </body>
+</html>
