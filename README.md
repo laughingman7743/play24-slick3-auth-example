@@ -20,7 +20,7 @@ Usage
 1. Create database and user
     
     Execute `play24-slick3-auth-example/conf/evolutions/default/create_dtabase_user.sql`    
-    (replace YOUR_DATABASE, YOUR_ADMIN_USER, YOUR_USER)
+    (replace YOUR_DATABASE, YOUR_ADMIN_USER, YOUR_USER, YOUR_PASSWORD)
     
 1. Fix `play24-slick3-auth-example/conf/application.conf`
     
@@ -41,9 +41,12 @@ Usage
     
     `$ activator run`
     
-1. Login  
+1. Database evolution
     
-    Access to http://localhost:9000/ on your browser.
+    Access to http://localhost:9000/ on your browser and click `Apply this script now!`.
+    
+1. Login
+    
     ```
     email: hoge.fuga@foo.bar
     password: password
