@@ -202,7 +202,7 @@
             <li>
                 <a href="#" onclick="document.logoutForm.submit(); return false;"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 @helper.form(action = LoginLogoutController.logout(), 'name -> "logoutForm") {
-                    @***helper.CSRF.formField***@
+                    @helper.CSRF.formField
                 }
             </li>
         </ul>
