@@ -19,12 +19,15 @@ Usage
     
 1. Create database and user
     
-    Execute `play24-slick3-auth-example/conf/evolutions/default/create_dtabase_user.sql`    
-    (replace YOUR_DATABASE, YOUR_ADMIN_USER, YOUR_USER, YOUR_PASSWORD)
+    Replace YOUR_DATABASE, YOUR_ADMIN_USER, YOUR_USER, YOUR_PASSWORD in DDL script `play24-slick3-auth-example/conf/evolutions/default/create_dtabase_user.sql`.  
+    Execute DDL script from command line.
+    ```
+    psql -s play24-slick3-auth-example/conf/evolutions/default/create_database_user.sql
+    ```
     
 1. Fix `play24-slick3-auth-example/conf/application.conf`
     
-    Replace database name, user name, password.
+    Replace YOUR_DATABASE, YOUR_USER, YOUR_PASSWORD in application.conf `play24-slick3-auth-example/conf/application.conf`.
     ```
     slick.dbs.default.db.url="jdbc:postgresql://localhost:5432/YOUR_DATABASE"
     slick.dbs.default.db.username=YOUR_USER
@@ -32,6 +35,7 @@ Usage
     ```
     
 1. Install Bower component
+
     ```
     $ cd play24-slick3-auth-example
     $ bower install
