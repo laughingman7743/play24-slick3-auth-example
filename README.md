@@ -25,7 +25,7 @@ Usage
     psql -s play24-slick3-auth-example/conf/evolutions/default/create_database_user.sql
     ```
     
-1. Fix `play24-slick3-auth-example/conf/application.conf`
+1. Fix database configuration
     
     Replace YOUR_DATABASE, YOUR_USER, YOUR_PASSWORD in application.conf `play24-slick3-auth-example/conf/application.conf`.
     ```
