@@ -1,5 +1,5 @@
 {
-  "name": "play24",
+  "name": "play24-slick3-auth-example",
   "version": "0.0.1",
   "dependencies": {
     "jquery": "~2.1.4",
