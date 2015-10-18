@@ -22,6 +22,6 @@ class UserAccountRepository @Inject()(protected val dbConfigProvider: DatabaseCo
   import driver.api._
 
   def findByEmail(email: String): Future[Option[UserAccountRow]] = {
-    db.run(Tables.UserAccount.filter(_.email === email).result.headOption)
+    db.run(Tables.UserAccount.filter(_.email === email.bind).result.headOption)
   }
 }
