@@ -7,7 +7,10 @@ import play.api.Application
 import play.api.test.{FakeApplication, PlaySpecification, WithApplication}
 
 import model.Tables.UserAccountRow
+import org.junit.runner.RunWith
+import org.specs2.runner.JUnitRunner
 
+@RunWith(classOf[JUnitRunner])
 class UserAccountRepositorySpec extends PlaySpecification {
 
   "UserAccountRepository" should {
