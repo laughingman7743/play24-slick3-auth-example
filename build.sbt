@@ -16,14 +16,14 @@ libraryDependencies ++= Seq(
   cache,
   filters,
   ws,
-  "com.typesafe.play" %% "play-slick" % "1.0.0",
-  "com.typesafe.play" %% "play-slick-evolutions" % "1.0.0",
-  "com.typesafe.slick" % "slick-codegen_2.11" % "3.0.0",
+  "com.typesafe.play" %% "play-slick" % "1.1.0",
+  "com.typesafe.play" %% "play-slick-evolutions" % "1.1.0",
+  "com.typesafe.slick" % "slick-codegen_2.11" % "3.1.0",
   "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
-  "jp.t2v" %% "play2-auth" % "0.14.0",
+  "jp.t2v" %% "play2-auth" % "0.14.1",
   "commons-codec" % "commons-codec" % "1.10",
   specs2 % Test,
-  "jp.t2v" %% "play2-auth-test" % "0.14.0" % "test",
+  "jp.t2v" %% "play2-auth-test" % "0.14.1" % "test",
   "com.h2database" % "h2" % "1.4.187" % "test"
 )
 
