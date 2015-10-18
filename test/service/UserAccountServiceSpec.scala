@@ -54,7 +54,7 @@ class UserAccountServiceSpec extends PlaySpecification with Mockito {
     }
 
     "authenticate fail" in {
-      val user = Await.result(service.authenticate(LoginForm("hoge.fuga@foo.bar", "aaaaaaaa")), 10.seconds)
+      val user = Await.result(service.authenticate(LoginForm("hoge.fuga@foo.bar", "aaaaaaaa")), 1.seconds)
       user must beNone
     }
   }
