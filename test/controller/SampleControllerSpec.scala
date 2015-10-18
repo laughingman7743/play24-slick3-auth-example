@@ -13,7 +13,7 @@ import jp.t2v.lab.play2.auth.test.Helpers._
 import org.junit.runner.RunWith
 import org.specs2.mock.Mockito
 import org.specs2.runner.JUnitRunner
-import service.UserAccountService
+import service.UserAccountServiceLike
 import util.security.AuthConfigLike
 import viewmodel.UserAccountViewModel
 
@@ -25,7 +25,7 @@ class SampleControllerSpec extends PlaySpecification with Mockito {
 
   "SampleController" should {
 
-    val mockService = mock[UserAccountService]
+    val mockService = mock[UserAccountServiceLike]
     mockService.findByEmail("email") returns
       Future(Some(UserAccountViewModel(1, "email", "password", "passwordSalt", "firstName", "lastName",
         1, 0, true, true, false,

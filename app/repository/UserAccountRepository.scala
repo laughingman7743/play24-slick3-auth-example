@@ -6,12 +6,19 @@ import scala.concurrent.Future
 
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 
+import com.google.inject.ImplementedBy
 import model.Tables
 import model.Tables.UserAccountRow
 import slick.driver.JdbcProfile
 
-class UserAccountRepository @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
+@ImplementedBy(classOf[UserAccountRepository])
+trait UserAccountRepositoryLike
   extends HasDatabaseConfigProvider[JdbcProfile] {
+  def findByEmail(email: String): Future[Option[UserAccountRow]]
+}
+
+class UserAccountRepository @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
+  extends UserAccountRepositoryLike {
   import driver.api._
 
   def findByEmail(email: String): Future[Option[UserAccountRow]] = {

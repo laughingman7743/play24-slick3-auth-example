@@ -8,7 +8,7 @@ import play.api.mvc._
 
 import controller.routes
 import jp.t2v.lab.play2.auth._
-import service.UserAccountService
+import service.UserAccountServiceLike
 import viewmodel.UserAccountViewModel
 
 trait AuthConfigLike extends AuthConfig {
@@ -20,7 +20,7 @@ trait AuthConfigLike extends AuthConfig {
   val idTag: ClassTag[Id] = classTag[Id]
   val sessionTimeoutInSeconds: Int = 3600
 
-  val userAccountService: UserAccountService
+  val userAccountService: UserAccountServiceLike
 
   def resolveUser(id: Id)(implicit ctx: ExecutionContext): Future[Option[UserAccountViewModel]] = {
     userAccountService.findByEmail(id)

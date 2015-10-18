@@ -15,11 +15,11 @@ import play.filters.csrf.CSRFCheck
 
 import form.LoginForm
 import jp.t2v.lab.play2.auth.LoginLogout
-import service.UserAccountService
+import service.UserAccountServiceLike
 import util.security.AuthConfigLike
 import util.validation._
 
-class LoginLogoutController @Inject()(val userAccountService: UserAccountService)
+class LoginLogoutController @Inject()(val userAccountService: UserAccountServiceLike)
   extends Controller with LoginLogout with AuthConfigLike {
 
   import LoginLogoutController._

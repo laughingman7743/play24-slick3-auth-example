@@ -5,10 +5,10 @@ import javax.inject.Inject
 import play.api.mvc._
 
 import jp.t2v.lab.play2.auth.AuthElement
-import service.UserAccountService
+import service.UserAccountServiceLike
 import util.security.AuthConfigLike
 
-class SampleController @Inject()(val userAccountService: UserAccountService)
+class SampleController @Inject()(val userAccountService: UserAccountServiceLike)
   extends Controller with AuthElement with AuthConfigLike {
 
   def index = StackAction(AuthorityKey -> None) { implicit request =>

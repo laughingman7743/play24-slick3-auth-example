@@ -6,12 +6,21 @@ import javax.inject.Inject
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
+import com.google.inject.ImplementedBy
 import form.LoginForm
 import org.apache.commons.codec.digest.DigestUtils
-import repository.UserAccountRepository
+import repository.UserAccountRepositoryLike
 import viewmodel.UserAccountViewModel
 
-class UserAccountService @Inject()(val userAccountRepository: UserAccountRepository) {
+@ImplementedBy(classOf[UserAccountService])
+trait UserAccountServiceLike {
+  def findByEmail(email: String): Future[Option[UserAccountViewModel]]
+
+  def authenticate(form: LoginForm): Future[Option[UserAccountViewModel]]
+}
+
+class UserAccountService @Inject()(val userAccountRepository: UserAccountRepositoryLike)
+  extends UserAccountServiceLike {
   import UserAccountService._
 
   def findByEmail(email: String): Future[Option[UserAccountViewModel]] = {
