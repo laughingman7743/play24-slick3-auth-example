@@ -15,24 +15,20 @@ class UserAccountService @Inject()(val userAccountRepository: UserAccountReposit
   import UserAccountService._
 
   def findByEmail(email: String): Future[Option[UserAccountViewModel]] = {
-    userAccountRepository.findByEmail(email).map(
-      user => user match {
-        case Some(user) => Some(new UserAccountViewModel(user))
-        case _ => None
+    userAccountRepository.findByEmail(email).map( userOpt =>
+      userOpt.flatMap { user =>
+        Some(new UserAccountViewModel(user))
       }
     )
   }
 
   def authenticate(form: LoginForm): Future[Option[UserAccountViewModel]] = {
-    userAccountRepository.findByEmail(form.email).map(
-      user => user match {
-        case Some(user) => {
-          if (hashAndStretch(form.password, user.passwordSalt, STRETCH_LOOP_COUNT) == user.password)
-            Some(new UserAccountViewModel(user))
-          else
-            None
-        }
-        case _ => None
+    userAccountRepository.findByEmail(form.email).map( userOpt =>
+      userOpt.flatMap { user =>
+        if (hashAndStretch(form.password, user.passwordSalt, STRETCH_LOOP_COUNT) == user.password)
+          Some(new UserAccountViewModel(user))
+        else
+          None
       }
     )
   }
