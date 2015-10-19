@@ -22,7 +22,7 @@ Usage
     Replace YOUR_DATABASE, YOUR_ADMIN_USER, YOUR_USER, YOUR_PASSWORD in DDL script `play24-slick3-auth-example/conf/evolutions/default/create_dtabase_user.sql`.  
     Execute DDL script from command line.
     ```
-    psql -s play24-slick3-auth-example/conf/evolutions/default/create_database_user.sql
+    psql -f play24-slick3-auth-example/conf/evolutions/default/create_database_user.sql
     ```
     
 1. Fix database configuration
